@@ -1,0 +1,60 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/example-lib/dist
+/example-lib/dist-server
+/example-lib/tmp
+/example-lib/out-tsc
+
+/example-app/dist
+/example-app/dist-server
+/example-app/tmp
+/example-app/out-tsc
+
+# dependencies
+/example-lib/node_modules
+/example-app/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/example-lib/.sass-cache
+/example-lib/connect.lock
+/example-lib/coverage
+/example-lib/libpeerconnection.log
+/example-lib/npm-debug.log
+/example-lib/testem.log
+/example-lib/typings
+
+/example-app/.sass-cache
+/example-app/connect.lock
+/example-app/coverage
+/example-app/libpeerconnection.log
+/example-app/npm-debug.log
+/example-app/testem.log
+/example-app/typings
+
+# e2e
+/example-lib/e2e/*.js
+/example-lib/e2e/*.map
+
+/example-app/e2e/*.js
+/example-app/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
