@@ -11,7 +11,7 @@ import { ExampleModule } from "../../example-lib/src/example.module";
   ],
   imports: [
     BrowserModule,
-    ExampleModule
+    ExampleModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

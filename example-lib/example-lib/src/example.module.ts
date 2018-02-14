@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ExampleTextComponent } from "./example-text.component";
+import { ExampleTextComponent } from './example-text.component';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import {ExampleTableComponent} from "./example-table.component";
+import { ExampleTableComponent} from './example-table.component';
 
 
 @NgModule({
@@ -28,5 +28,15 @@ import {ExampleTableComponent} from "./example-table.component";
   ]
 })
 export class ExampleModule {
+
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: ExampleModule,
+      providers: [
+        NgxDatatableModule
+      ]
+    };
+  }
+
 
 }
