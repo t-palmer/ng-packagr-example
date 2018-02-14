@@ -3,17 +3,19 @@
   "file": "example-lib.umd.js",
   "sources": [
     "ng://example-lib/out/example.module.ts",
+    "ng://example-lib/out/example-table.component.ts",
     "ng://example-lib/out/example-text.component.ts"
   ],
   "sourcesContent": [
-    "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { ExampleTextComponent } from \"./example-text.component\";\r\n\r\n@NgModule({\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule\r\n  ],\r\n  declarations: [\r\n    ExampleTextComponent\r\n  ],\r\n  providers: [\r\n  ],\r\n  exports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    ExampleTextComponent\r\n  ]\r\n})\r\nexport class ExampleModule { }\r\n",
+    "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { ExampleTextComponent } from \"./example-text.component\";\r\n\r\nimport { NgxDatatableModule } from '@swimlane/ngx-datatable';\r\nimport {ExampleTableComponent} from \"./example-table.component\";\r\n\r\n\r\n@NgModule({\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    NgxDatatableModule\r\n  ],\r\n  declarations: [\r\n    ExampleTextComponent,\r\n    ExampleTableComponent\r\n  ],\r\n  providers: [\r\n  ],\r\n  exports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    ExampleTextComponent,\r\n    ExampleTableComponent,\r\n    NgxDatatableModule\r\n  ]\r\n})\r\nexport class ExampleModule {\r\n\r\n}\r\n",
+    "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-example-table',\r\n  template: `\r\n    <div>\r\n      <ngx-datatable\r\n        [rows]=\"rows\"\r\n        [columns]=\"columns\">\r\n      </ngx-datatable>\r\n    </div>\r\n  `\r\n})\r\nexport class ExampleTableComponent {\r\n  rows = [\r\n    { name: 'Austin', gender: 'Male', company: 'Swimlane' },\r\n    { name: 'Dany', gender: 'Male', company: 'KFC' },\r\n    { name: 'Molly', gender: 'Female', company: 'Burger King' },\r\n  ];\r\n  columns = [\r\n    { prop: 'name' },\r\n    { name: 'Gender' },\r\n    { name: 'Company' }\r\n  ];\r\n}\r\n",
     "import { Component, TemplateRef } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-example-text',\r\n  template: `<h1>Example Text Component</h1>\r\n`\r\n})\r\nexport class ExampleTextComponent {\r\n\r\n}\r\n\r\n"
   ],
   "names": [
+    "NgxDatatableModule",
     "FormsModule",
     "CommonModule",
-    "NgModule",
     "Component"
   ],
-  "mappings": ";;;;;;;;;;;ICAA,SAAA,oBAAA,GAAA;;;CAEA,EAAA,CAAA,CAAA;AACA,oBAAA,CAAA,UAAA,GAAA;IACA,EAAA,IAAA,EAAAG,cAAA,EAAA,IAAA,EAAA,CAAA;gBACA,QAAA,EAAA,kBAAA;gBACA,QAAA,EAAA,mCAAA;;;;;;;;;ADNA,IAAA,aAAA,kBAAA,YAAA;;;IAKA,OAAA,aAAA,CAAA;CACA,EAAA,CAAA,CAAA;AACA,aAAA,CAAA,UAAA,GAAA;IACA,EAAA,IAAA,EAAAD,aAAI,EAAJ,IAAA,EAAA,CAAA;gBACA,OAAA,EAAA;oBACAD,mBAAA;oBACID,iBAAJ;iBACG;gBACD,YAAF,EAAA;oBAEA,oBAAA;iBACA;gBACA,SAAA,EAAA,EAAA;gBACA,OAAA,EAAA;oBACAC,mBAAA;oBACAD,iBAAA;;;;;;;;;;;;;;;;;;;"
+  "mappings": ";;;;;;;;;;;IEAA,SAAA,oBAAA,GAAA;;;CAEA,EAAA,CAAA,CAAA;AACA,oBAAA,CAAA,UAAA,GAAA;IACA,EAAA,IAAA,EAAAG,cAAA,EAAA,IAAA,EAAA,CAAA;gBACA,QAAA,EAAA,kBAAA;gBACA,QAAA,EAAA,mCAAA;;;;;;;;;ADNA,IAAA,qBAAA,kBAAA,YAAA;;QAcA,IAAA,CAAA,IAAA,GAAS;YACL,EAAE,IAAI,EAAE,QAAQ,EAAE,MAAM,EAAE,MAAM,EAAE,OAAO,EAAE,UAAU,EAAE;YACvD,EAAE,IAAI,EAAE,MAAM,EAAE,MAAM,EAAE,MAAM,EAAE,OAAO,EAAE,KAAK,EAAE;YAChD,EAAE,IAAI,EAAE,OAAO,EAAE,MAAM,EAAE,QAAQ,EAAE,OAAO,EAAE,aAAa,EAAE;SAC5D,CAAH;QACA,IAAA,CAAA,OAAA,GAAY;YACR,EAAE,IAAI,EAAE,MAAM,EAAE;YAChB,EAAE,IAAI,EAAE,QAAQ,EAAE;YAClB,EAAE,IAAI,EAAE,SAAS,EAAE;SACpB,CAAH;;;;AArBA,qBAAU,CAAV,UAAA,GAAA;IACA,EAAA,IAAA,EAAAA,cAAA,EAAA,IAAA,EAAA,CAAA;gBACE,QAAQ,EAAE,mBAAZ;;;;;;;;;;;;;;;;;gBDJA,OAAA,EAAA;;;oBASSH,+BAAT;iBACA;gBACA,YAAA,EAAA;oBACI,oBAAJ;oBACI,qBAAJ;iBACG;gBACD,SAAF,EAAA,EAAA;gBACA,OAAA,EAAA;oBACIE,mBAAJ;oBACAD,iBAAA;oBACA,oBAAA;oBAEA,qBAAA;oBACID,+BAAJ;iBACA;aACA,EAAA,EAAA;CACA,CAAA;;AAEA,aAAA,CAAA,cAAA,GAAA,YAAA,EAAA,OAAA,EAAA,CAAA,EAAA,CAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 }
